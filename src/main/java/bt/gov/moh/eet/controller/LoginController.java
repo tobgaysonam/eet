@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by ICT-MoF on 3/20/2020.
  */@Controller
-   @RequestMapping("/userrego")
-public class UserRegoController {
+   @RequestMapping("/login")
+public class LoginController {
     @Autowired
-    private UserRegoService userRegoService;
+
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.HEAD})
-    public String index(ModelMap model) {
-       model.addAttribute("getGates", userRegoService.getGate());
-        model.addAttribute("getUserType", userRegoService.getUserType());
-        return "eet/userregistration";
+    public String index() {
+
+        return "eet/userLogin";
     }
 }

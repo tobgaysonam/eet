@@ -11,62 +11,54 @@ import java.util.Date;
 public class GuestLogDTO {
 
     //private variables region
-    private Integer guest_id;
-    private Integer identification_type_id;
-    private String identification_no;
-    private Integer nationality_id;
-    private String guest_name;
+    private Integer IdentificationTypeId;
+    private String identificationNo;
+    private Integer nationalityId;
+    private String name;
     private String gender;
     private Integer age;
-    private String present_address;
-    private Integer contact_no;
+    private String presentAddress;
+    private Integer contactNo;
     private Integer temperature;
-    private DateTime entry_date_time;
-    private DateTime exit_date_time;
-    private Integer reason_id;
-    private String reason;
+    private DateTime entryDate;
+    private DateTime exitDate;
+    private Integer exitReasonId;
+    private String reasons;
     private Integer created_by;
     private DateTime created_on;
 
     //setter and getter region
-    public Integer getGuest_id() {
-        return guest_id;
+
+    public Integer getIdentificationTypeId() {
+        return IdentificationTypeId;
     }
 
-    public void setGuest_id(Integer guest_id) {
-        this.guest_id = guest_id;
+    public void setIdentificationTypeId(Integer identificationTypeId) {
+        IdentificationTypeId = identificationTypeId;
     }
 
-    public Integer getIdentification_type_id() {
-        return identification_type_id;
+    public String getIdentificationNo() {
+        return identificationNo;
     }
 
-    public void setIdentification_type_id(Integer identification_type_id) {
-        this.identification_type_id = identification_type_id;
+    public void setIdentificationNo(String identificationNo) {
+        this.identificationNo = identificationNo;
     }
 
-    public String getIdentification_no() {
-        return identification_no;
+    public Integer getNationalityId() {
+        return nationalityId;
     }
 
-    public void setIdentification_no(String identification_no) {
-        this.identification_no = identification_no;
+    public void setNationalityId(Integer nationalityId) {
+        this.nationalityId = nationalityId;
     }
 
-    public Integer getNationality_id() {
-        return nationality_id;
+    public String getName() {
+        return name;
     }
 
-    public void setNationality_id(Integer nationality_id) {
-        this.nationality_id = nationality_id;
-    }
-
-    public String getGuest_name() {
-        return guest_name;
-    }
-
-    public void setGuest_name(String guest_name) {
-        this.guest_name = guest_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGender() {
@@ -85,20 +77,20 @@ public class GuestLogDTO {
         this.age = age;
     }
 
-    public String getPresent_address() {
-        return present_address;
+    public String getPresentAddress() {
+        return presentAddress;
     }
 
-    public void setPresent_address(String present_address) {
-        this.present_address = present_address;
+    public void setPresentAddress(String presentAddress) {
+        this.presentAddress = presentAddress;
     }
 
-    public Integer getContact_no() {
-        return contact_no;
+    public Integer getContactNo() {
+        return contactNo;
     }
 
-    public void setContact_no(Integer contact_no) {
-        this.contact_no = contact_no;
+    public void setContactNo(Integer contactNo) {
+        this.contactNo = contactNo;
     }
 
     public Integer getTemperature() {
@@ -109,36 +101,36 @@ public class GuestLogDTO {
         this.temperature = temperature;
     }
 
-    public DateTime getEntry_date_time() {
-        return entry_date_time;
+    public DateTime getEntryDate() {
+        return entryDate;
     }
 
-    public void setEntry_date_time(DateTime entry_date_time) {
-        this.entry_date_time = entry_date_time;
+    public void setEntryDate(DateTime entryDate) {
+        this.entryDate = entryDate;
     }
 
-    public DateTime getExit_date_time() {
-        return exit_date_time;
+    public DateTime getExitDate() {
+        return exitDate;
     }
 
-    public void setExit_date_time(DateTime exit_date_time) {
-        this.exit_date_time = exit_date_time;
+    public void setExitDate(DateTime exitDate) {
+        this.exitDate = exitDate;
     }
 
-    public Integer getReason_id() {
-        return reason_id;
+    public Integer getExitReasonId() {
+        return exitReasonId;
     }
 
-    public void setReason_id(Integer reason_id) {
-        this.reason_id = reason_id;
+    public void setExitReasonId(Integer exitReasonId) {
+        this.exitReasonId = exitReasonId;
     }
 
-    public String getReason() {
-        return reason;
+    public String getReasons() {
+        return reasons;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setReasons(String reasons) {
+        this.reasons = reasons;
     }
 
     public Integer getCreated_by() {

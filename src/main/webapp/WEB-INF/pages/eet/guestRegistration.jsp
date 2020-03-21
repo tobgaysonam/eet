@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ICT-MoF
@@ -12,7 +13,7 @@
     <title></title>
 </head>
 <body>
-<form class="form-group" id="guestLogFormId"  method="post" enctype="multipart/form-data">
+<form class="card form-horizontal" id="guestLogFormId" action="<c:url value="/guestLog"/>" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-12">
             <div class="pull-right">
@@ -33,14 +34,14 @@
             </div>
         <div class="col-2">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
-                <label class="custom-control-label" for="customRadio">Entry</label>
+                <input type="radio" class="custom-control-input" id="entry" name="entry" value="Entry">
+                <label class="custom-control-label" for="entry">Entry</label>
              </div>
         </div>
         <div class="col-2">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="customRadio2" name="example" value="customEx" checked>
-                <label class="custom-control-label" for="customRadio2">Exit</label>
+                <input type="radio" class="custom-control-input" id="exit" name="entry" value="Exit" checked>
+                <label class="custom-control-label" for="entry">Exit</label>
             </div>
         </div>
     </div>
@@ -56,6 +57,7 @@
                         <form:options items="${IdentificationType}" itemValue="valueInteger"
                                       itemLabel="text"></form:options>
                     </form:select>
+                    <span class="text-danger" id="IdentificationTypeErrorMsg"></span>
                 </div>
             </div>
         </div>
@@ -67,7 +69,9 @@
             <div class="form-group row">
                 <label class="col-sm-3">Identification No: </label>
                 <div class="col-sm-7">
-                    <input type="text" name="identification" id="identification" required class="form-control form-control-sm">
+                    <input type="text" name="identificationNo" id="identificationNo" required class="form-control form-control-sm">
+                    <span class="text-danger" id="identificationNoErrorMsg"></span>
+
                 </div>
             </div>
 
@@ -86,6 +90,7 @@
                         <form:options items="${getNationalities}" itemValue="valueInteger"
                                       itemLabel="text"></form:options>
                     </form:select>
+                    <span class="text-danger" id="nationalityIdErrorMsg"></span>
                 </div>
             </div>
         </div>
@@ -94,6 +99,7 @@
                 <label class="col-sm-3">Name: </label>
                 <div class="col-sm-9">
                     <input type="text" name="name" id="name" required class="form-control form-control-sm">
+                    <span class="text-danger" id="nameErrorMsg"></span>
                 </div>
             </div>
 
@@ -111,6 +117,7 @@
                         <option value="F">Female</option>
                         <option value="O">Others</option>
                     </select>
+                    <span class="text-danger" id="genderErrorMsg"></span>
                 </div>
             </div>
         </div>
@@ -119,6 +126,7 @@
                 <label class="col-sm-3">Age: </label>
                 <div class="col-sm-9">
                     <input type="text" name="age" id="age" required class="form-control form-control-sm">
+                    <span class="text-danger" id="ageErrorMsg"></span>
                 </div>
             </div>
 
@@ -130,7 +138,8 @@
             <div class="form-group row">
                 <label class="col-sm-3">present Address: </label>
                 <div class="col-sm-9">
-                    <textarea name="paddress" id="paddress" rows="3" style="resize: none;" class="form-control"></textarea>
+                    <textarea name="presentAddress" id="presentAddress" rows="3" style="resize: none;" class="form-control"></textarea>
+                    <span class="text-danger" id="presentAddressErrorMsg"></span>
                 </div>
             </div>
         </div>
@@ -138,7 +147,8 @@
             <div class="form-group row">
                 <label class="col-sm-3">Contact: </label>
                 <div class="col-sm-9">
-                    <input type="text" name="contact" id="contact" class="form-control form-control-sm">
+                    <input type="text" name="contactNo" id="contactNo" class="form-control form-control-sm">
+                    <span class="text-danger" id="contactNoErrorMsg"></span>
                 </div>
             </div>
 
@@ -156,6 +166,7 @@
                         <form:options items="${getExitReasons}" itemValue="valueInteger"
                                       itemLabel="text"></form:options>
                     </form:select>
+                    <span class="text-danger" id="exitReasonIdErrorMsg"></span>
                 </div>
             </div>
         </div>
@@ -164,6 +175,7 @@
                 <label class="col-sm-3">Reasons: </label>
                 <div class="col-sm-9">
                     <textarea name="reasons" id="reasons" rows="3" style="resize: none;" class="form-control"></textarea>
+                    <span class="text-danger" id="reasonsErrorMsg"></span>
                 </div>
             </div>
 
@@ -176,6 +188,7 @@
                 <label class="col-sm-3">Thermometer Reading: </label>
                 <div class="col-sm-9">
                     <input type="text" name="temperature" id="temperature" class="form-control form-control-sm">
+                    <span class="text-danger" id="temperatureErrorMsg"></span>
                 </div>
             </div>
         </div>
@@ -183,7 +196,10 @@
             <div class="form-group row">
                 <label class="col-sm-3">Image: </label>
                 <div class="col-sm-9">
-                    <input type="file" name="file_path" >
+                    <input type="file" class="attachedFile" id="attachedFile"
+                           name='fileAttachmentDTOs[0].attachedFile'
+                           accept="image/jpeg,image/png,.doc,.docx,.pdf,.xlsx,.xls"
+                           required>
                 </div>
             </div>
 
@@ -194,8 +210,9 @@
     <hr>
     <div class="form-group row">
         <div class="col-sm-12">
-            <button class="btn btn-success" type="submit">
-                <i class="fa fa-paper-plane"></i>Register Visitor
+            <button type="submit" id="btnSubmit" class="btn btn-primary">
+                <i class="fa fa-check"></i>
+                Register Visitor
             </button>
             <button class="btn btn-danger" type="reset">
                 <i class="fa fa-trash"></i> Cancel
