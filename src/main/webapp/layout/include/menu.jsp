@@ -17,12 +17,10 @@
                         <a href="/guestLog" class="nav-link" style="color:black"> <i
                                 class="fa fa-edit"></i>Data Entry</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="/login" class="nav-link" style="color:black"> <i
                                 class="fa fa-user"></i>Login</a>
                     </li>
-
                 </ul>
             </div>
         </div>

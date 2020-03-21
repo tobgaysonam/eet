@@ -8,7 +8,7 @@
 <script type="text/javascript" src="<c:url value='/resources/js/vendors/datepicker.min.js'/>"></script>
 
 <script type="text/javascript" src="<c:url value='/resources/js/dataTable/jquery.dataTables.min.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/resources/js/dataTable/dataTables.editor.min.js'/>"></script>
+<%--<script type="text/javascript" src="<c:url value='/resources/js/dataTable/dataTables.editor.min.js'/>"></script>--%>
 <script type="text/javascript" src="<c:url value='/resources/js/dataTable/dataTables.select.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/dataTable/dataTables.buttons.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/dataTable/jszip.min.js'/>"></script>
