@@ -104,19 +104,6 @@
             <version>5.1.6.RELEASE</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/Jacson -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.8.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.4</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.sitemesh/sitemesh -->
         <dependency>
             <groupId>org.sitemesh</groupId>
@@ -166,12 +153,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.wso2.client</groupId>
-            <artifactId>G2C_CommonBusinessAPI</artifactId>
-            <version>1.0.0-SNAPSHORT</version>
         </dependency>
 
         <dependency>
@@ -244,12 +225,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.squareup.okhttp</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>2.7.5</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.squareup.okio</groupId>
             <artifactId>okio</artifactId>
             <version>1.6.0</version>
@@ -275,53 +250,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--SSO client Intergration Start-->
-        <dependency>
-            <groupId>sso-client-util-1.0.0</groupId>
-            <artifactId>sso-client-util-1.0.0</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <!-- SSO client Intergration End-->
-
-        <!--<dependency>
-            <groupId>org.wso2.client.DCRC_RestCitizenImageAPI</groupId>
-            <artifactId>org.wso2.client.DCRC_RestCitizenImageAPI</artifactId>
-            <version>1.0.0-SNAPSHORT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.wso2.client.RBP_SCSDetailsAPI</groupId>
-            <artifactId>org.wso2.client.RBP_SCSDetailsAPI</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.wso2.client.RCSC_EmployeeDetailsAPI</groupId>
-            <artifactId>org.wso2.client.RCSC_EmployeeDetailsAPI</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>-->
-
-        <!-- Jasper Report Dependency Start-->
-        <dependency>
-            <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports-fonts</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports-functions</artifactId>
-            <version>6.10.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports-chart-themes</artifactId>
-            <version>6.10.0</version>
-        </dependency>
         <!-- apache poi -->
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -346,11 +274,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-digester3</artifactId>
-            <version>3.2</version>
-        </dependency>
-        <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>2.4.7</version>
@@ -360,43 +283,6 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.1</version>
         </dependency>
-        <!-- Jasper Report Dependency End-->
-
-        <!--CAS dependency start-->
-
-        <!-- JBoss integration is provided by this dependency-->
-
-        <!--<dependency>
-            <groupId>org.jasig.cas.client</groupId>
-            <artifactId>cas-client-integration-jboss</artifactId>
-            <version>${java.cas.client.version}</version>
-        </dependency>-->
-
-        <!--Tomcat 9.0.x is provided by this dependency:-->
-        <!-- <dependency>
-             <groupId>org.jasig.cas.client</groupId>
-             <artifactId>cas-client-integration-tomcat-v90</artifactId>
-             <version>${java.cas.client.version}</version>
-         </dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-core -->
-        <dependency>
-            <groupId>org.jasig.cas.client</groupId>
-            <artifactId>cas-client-core</artifactId>
-            <version>3.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.4.2.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.4.2.Final</version>
-        </dependency>
-        <!-- CAS dependency End-->
-
     </dependencies>
 
     <build>
