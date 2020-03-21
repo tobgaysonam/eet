@@ -12,10 +12,17 @@ EntryExitTrackerDao.getidentificationtypes = SELECT identification_type_id ,iden
 
 EntryExitTrackerDao.getUserType = SELECT user_type_id AS valueInteger,user_type  AS text FROM usertypes
 
-EntryExitTrackerDao.insertusers = INSERT INTO users(cid,password,full_name,mobile_number,designation,working_address,user_type_id) \
-                                  VALUES()
-
-EntryExitTrackerDao.insertvisitorlog = INSERT INTO guestlog(guest_id,identification_type_id,identification_no,nationality_id,guest_name,gender,age,present_address,contact_no,temperature,entry_date_time,exit_date_time,reason_id,reason,created_by,created_on) \
-                                        VALUES()
-
+EntryExitTrackerDao.fetchExistingGuestLogDetails = SELECT \
+                                                  identification_type_id AS IdentificationTypeId, \
+                                                  nationality_id AS nationalityId, \
+                                                  guest_name AS name, \
+                                                  gender AS gender, \
+                                                  age AS age, \
+                                                  present_address AS presentAddress, \
+                                                  contact_no AS contactNo, \
+                                                  temperature AS temperature, \
+                                                  reason_id AS exitReasonId, \
+                                                  reason AS reasons \
+                                                FROM guestlog \
+                                                WHERE identification_no = :cidNo
 
