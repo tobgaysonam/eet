@@ -20,6 +20,6 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/dataTable/editor.dataTables.min.css' />"/>
 <link rel="stylesheet" href="<c:url value='/resources/css/dataTable/select.dataTables.min.css' />"/>
 <link rel="stylesheet" href="<c:url value='/resources/css/dataTable/buttons.dataTables.min.css' />"/>
-
+<link rel="stylesheet" href="<c:url value='/resources/css/imagecapture.css' />"/>
 
 

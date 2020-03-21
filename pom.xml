@@ -385,6 +385,13 @@
             <version>1.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.sarxos/webcam-capture -->
+        <dependency>
+            <groupId>com.github.sarxos</groupId>
+            <artifactId>webcam-capture</artifactId>
+            <version>0.3.12</version>
+        </dependency>
+
         <!--<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
@@ -416,6 +423,7 @@
             <artifactId>jsr250-api</artifactId>
             <version>1.0</version>
         </dependency>-->
+
     </dependencies>
 
     <build>

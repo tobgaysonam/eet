@@ -17,7 +17,6 @@
                         <a href="/guestLog" class="nav-link" style="color:black"> <i
                                 class="fa fa-edit"></i>Data Entry</a>
                     </li>
-
                 </ul>
             </div>
         </div>
