@@ -15,11 +15,7 @@ import java.util.Date;
 @Table(name = "guestlog")
 public class GuestLogDetail {
     //region private variables
-
     @Id
-    @Column(name = "guest_id")
-    private Integer guest_id;
-
     @Column(name = "identification_type_id")
     private Integer identification_type_id;
 
@@ -68,14 +64,6 @@ public class GuestLogDetail {
     //endregion
 
     //region setters and getters
-
-    public Integer getGuest_id() {
-        return guest_id;
-    }
-
-    public void setGuest_id(Integer guest_id) {
-        this.guest_id = guest_id;
-    }
 
     public Integer getIdentification_type_id() {
         return identification_type_id;
