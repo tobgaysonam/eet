@@ -1,6 +1,5 @@
 package bt.gov.moh.eet.entity;
 
-import org.exolab.castor.types.DateTime;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -7,7 +7,6 @@ import bt.gov.moh.enumeration.SystemDataInt;
 import bt.gov.moh.helper.DropdownDTO;
 import bt.gov.moh.helper.FileUploadToExternalLocation;
 import bt.gov.moh.helper.ResponseMessage;
-import org.exolab.castor.types.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
