@@ -20,12 +20,15 @@ public class GuestLogDTO {
     private String presentAddress;
     private Integer contactNo;
     private Integer temperature;
-    private DateTime entryDate;
-    private DateTime exitDate;
+    private Date entryDate;
+    private Date exitDate;
     private Integer exitReasonId;
     private String reasons;
     private Integer created_by;
-    private DateTime created_on;
+    private Date created_on;
+    private Integer gateId;
+    private Enum alertFlag;
+    private Date alertUpdateTime;
 
     //setter and getter region
 
@@ -101,19 +104,19 @@ public class GuestLogDTO {
         this.temperature = temperature;
     }
 
-    public DateTime getEntryDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(DateTime entryDate) {
+    public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
 
-    public DateTime getExitDate() {
+    public Date getExitDate() {
         return exitDate;
     }
 
-    public void setExitDate(DateTime exitDate) {
+    public void setExitDate(Date exitDate) {
         this.exitDate = exitDate;
     }
 
@@ -141,11 +144,35 @@ public class GuestLogDTO {
         this.created_by = created_by;
     }
 
-    public DateTime getCreated_on() {
+    public Date getCreated_on() {
         return created_on;
     }
 
-    public void setCreated_on(DateTime created_on) {
+    public void setCreated_on(Date created_on) {
         this.created_on = created_on;
+    }
+
+    public Integer getGateId() {
+        return gateId;
+    }
+
+    public void setGateId(Integer gateId) {
+        this.gateId = gateId;
+    }
+
+    public Enum getAlertFlag() {
+        return alertFlag;
+    }
+
+    public void setAlertFlag(Enum alertFlag) {
+        this.alertFlag = alertFlag;
+    }
+
+    public Date getAlertUpdateTime() {
+        return alertUpdateTime;
+    }
+
+    public void setAlertUpdateTime(Date alertUpdateTime) {
+        this.alertUpdateTime = alertUpdateTime;
     }
 }

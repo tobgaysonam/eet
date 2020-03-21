@@ -15,6 +15,7 @@
 <body>
 <form class="card form-horizontal" id="guestLogFormId" action="<c:url value="/guestLog"/>" method="post" enctype="multipart/form-data">
     <div class="row">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="col-12">
             <div class="pull-right">
                 <div class="booth">
@@ -111,11 +112,10 @@
             <div class="form-group row">
                 <label class="col-sm-3">Gender: </label>
                 <div class="col-sm-9">
-                    <select name="gender" id="gender" required class="form-control form-control-sm">
+                    <select name="gender" id="gender" required class="form-control field">
                         <option value="">Select</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
-                        <option value="O">Others</option>
                     </select>
                     <span class="text-danger" id="genderErrorMsg"></span>
                 </div>
@@ -136,7 +136,7 @@
     <div class="row">
         <div class="col-6">
             <div class="form-group row">
-                <label class="col-sm-3">present Address: </label>
+                <label class="col-sm-3">Present Address: </label>
                 <div class="col-sm-9">
                     <textarea name="presentAddress" id="presentAddress" rows="3" style="resize: none;" class="form-control"></textarea>
                     <span class="text-danger" id="presentAddressErrorMsg"></span>

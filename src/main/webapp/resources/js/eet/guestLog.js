@@ -67,7 +67,7 @@ guestLog = (function () {
         return retval;
     }
 
-    function fetchApplicantCitizenDetails() {
+    function fetchCitizenDetails() {
         $('#identificationNo').on('change', function () {
             var identificationNo = $(this).val();
                 if (identificationNo != '') {
@@ -80,9 +80,9 @@ guestLog = (function () {
                             var data = res.responseDTO;
                             if (res.responseStatus == 1) {
                                 $('#identificationNoErrorMsg').html('');
-                                $('#name').val(data.applicantName);
+                                $('#name').val(data.name);
                                 $('#gender').val(data.gender);
-                                $('#age').val(data.dob);
+                                $('#age').val(data.age);
                             } else {
                                 $('#identificationNoErrorMsg').html(res.responseText);
                                 $('#name').val('');
@@ -96,6 +96,35 @@ guestLog = (function () {
                     $('#gender').val();
                     $('#age').val();
                 }
+        });
+    }
+
+    function fetchExistingGuestLogDetails() {
+        $('#identificationNo').on('Click', function () {
+            var identificationNo = $(this).val();
+            if (identificationNo != '') {
+                var url = _baseURL() + 'fetchExistingGuestLogDetails';
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data: {cidNo: identificationNo},
+                    success: function (res) {
+                        var data = res.responseDTO;
+                        if (res.responseStatus == 1) {
+                            populate(data);
+                        } else {
+                            $('#identificationNoErrorMsg').html(res.responseText);
+                            $('#name').val('');
+                            $('#cidNo').val('');
+                            $('#cidNo').addClass('error');
+                        }
+                    }
+                });
+            } else {
+                $('#name').val();
+                $('#gender').val();
+                $('#age').val();
+            }
         });
     }
 
@@ -295,9 +324,7 @@ guestLog = (function () {
                         processData: false,
                         success: function (res) {
                             if (res.responseStatus == 1) {
-                                $('#acknowledgement').removeClass('hidden');
-                                $('#registration').addClass('hidden');
-                                $('#serviceName').text(res.serviceName);
+                                alert("Submitted Successfully")
                                 $('.field').val('');
                             } else {
                                 warningMsg(res.responseText);
@@ -318,7 +345,8 @@ guestLog = (function () {
 
 
     return {
-         fetchApplicantCitizenDetails: fetchApplicantCitizenDetails
+        fetchCitizenDetails: fetchCitizenDetails
+        , fetchExistingGuestLogDetails: fetchExistingGuestLogDetails
         , addMoreAttachment: addMoreAttachment
         , checkFileSize: checkFileSize
         , deleteAttachment: deleteAttachment
@@ -329,9 +357,10 @@ guestLog = (function () {
 $(document).ready(
     function () {
         $('.field').val('');
-        guestLog.fetchApplicantCitizenDetails();
+        guestLog.fetchCitizenDetails();
         guestLog.addMoreAttachment();
         guestLog.checkFileSize();
         guestLog.deleteAttachment();
         guestLog.saveGuestLog();
+        guestLog.fetchExistingGuestLogDetails();
     });

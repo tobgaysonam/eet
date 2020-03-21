@@ -4,6 +4,7 @@ import bt.gov.moh.eet.dto.CitizenDetailDTO;
 import bt.gov.moh.enumeration.SystemDataInt;
 import bt.gov.moh.helper.ResponseMessage;
 import com.squareup.okhttp.OkHttpClient;
+import org.apache.xmlbeans.impl.tool.CodeGenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +29,7 @@ import java.text.ParseException;
 public class CommonServiceApi {
     public ResponseMessage getCitizenDetails(String cidNo) { ResponseMessage responseMessage = new ResponseMessage();
 
-        CitizenDetailDTO citizenDetailDTO = new CitizenDetailDTO();
+            CitizenDetailDTO citizenDetailDTO = new CitizenDetailDTO();
 
         try {
             OkHttpClient httpClient = new OkHttpClient();
@@ -39,7 +40,7 @@ public class CommonServiceApi {
             apiClient.setHttpClient(httpClient);
 
             apiClient.setBasePath("https://staging-datahub-apim.dit.gov.bt/dcrc_citizen_details_api/1.0.0");
-            apiClient.setAccessToken("1a1e7391-07c4-3763-b4eb-2c30c810d80d");
+            apiClient.setAccessToken("1c57772f-1829-3576-b9f0-d722083fb65c");
 
             DefaultApi api = new DefaultApi(apiClient);
 
@@ -51,10 +52,9 @@ public class CommonServiceApi {
 
                 citizenDetailDTO.setName(citizendetailsObj.getFirstName() + " " + citizendetailsObj.getMiddleName() + citizendetailsObj.getLastName());
                 citizenDetailDTO.setName(citizenDetailDTO.getName().replaceAll("null", ""));
-                citizenDetailDTO.setAge(citizendetailsObj.getDob());
+                System.out.println("Gender " + citizendetailsObj.getGender());
                 citizenDetailDTO.setGender(citizendetailsObj.getGender());
-
-
+                citizenDetailDTO.setAge(citizendetailsObj.getDob());
             }
         } catch (Exception e) {
             responseMessage.setResponseStatus(SystemDataInt.MESSAGE_STATUS_UNSUCCESSFUL.value());

@@ -21,7 +21,10 @@
 <script type="text/javascript" src="<c:url value='/resources/js/vendors/jquery.blockUI.js'/>"></script>
 
 <script type="text/javascript" src="<c:url value='/resources/js/lib/script-loader.js' />"></script>
-<script type="text/javascript" src="<c:url value='/resources/js/lib/ttpl_lib.js' />"></script>
+<script type="text/javascript" src="<c:url value='/resources/js/lib/eet_lib.js' />"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/lib/globalConf.js' />"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/lib/script.js'/>"></script>
 
+<%--<script type="text/javascript" src="<c:url value='/resources/js/vendors/jquery-3.2.1.min.js'/>"></script>--%>
+<%--<script type="text/javascript" src="<c:url value='/resources/js/require.min.js'/>"></script>--%>
+<%--<script type="text/javascript" src="<c:url value='/resources/js/dashboard.js'/>"></script>--%>

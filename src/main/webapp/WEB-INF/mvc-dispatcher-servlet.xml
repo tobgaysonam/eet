@@ -43,6 +43,6 @@
 
     <import resource="configuration/connection-string.xml"/>
     <import resource="configuration/data-context.xml"/>
-    <!--<import resource="configuration/spring-security.xml"/>-->
+    <import resource="configuration/spring-security.xml"/>
 
 </beans>
