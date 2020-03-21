@@ -16,6 +16,21 @@
 <form class="card form-horizontal" id="guestLogFormId" action="<c:url value="/guestLog"/>" method="post" enctype="multipart/form-data">
     <div class="row">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <div class="col-12">
+            <div class="pull-right">
+                <div class="booth">
+                    <canvas id="canvas" width="200" height="200"></canvas>
+                </div>
+                <div align="center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageCaptureModal">
+                        Launch Image Capture
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <jsp:include page="imagecapture.jsp"></jsp:include>
+    <div class="row">
         <div class="col-4">
             </div>
         <div class="col-2">
