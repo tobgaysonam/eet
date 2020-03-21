@@ -1,6 +1,6 @@
 package bt.gov.moh.eet.dto;
 
-import org.exolab.castor.types.DateTime;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -29,6 +29,7 @@ public class GuestLogDTO {
     private Integer gateId;
     private Enum alertFlag;
     private Date alertUpdateTime;
+    private MultipartFile canvas;
 
     //setter and getter region
 
@@ -174,5 +175,13 @@ public class GuestLogDTO {
 
     public void setAlertUpdateTime(Date alertUpdateTime) {
         this.alertUpdateTime = alertUpdateTime;
+    }
+
+    public MultipartFile getCanvas() {
+        return canvas;
+    }
+
+    public void setCanvas(MultipartFile canvas) {
+        this.canvas = canvas;
     }
 }

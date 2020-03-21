@@ -5,12 +5,14 @@ import bt.gov.moh.eet.dto.GuestLogDTO;
 import bt.gov.moh.eet.entity.GuestLogDetail;
 import bt.gov.moh.enumeration.SystemDataInt;
 import bt.gov.moh.helper.DropdownDTO;
+import bt.gov.moh.helper.FileUploadToExternalLocation;
 import bt.gov.moh.helper.ResponseMessage;
-import org.exolab.castor.types.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -34,9 +36,21 @@ public class GuestLogService {
     }
 
 
-    public ResponseMessage saveGuestLog(HttpServletRequest request, GuestLogDTO guestLogDTO) {
+    public ResponseMessage saveGuestLog(HttpServletRequest request, GuestLogDTO guestLogDTO) throws IOException {
+
         GuestLogDetail guestLogDetail = convertApplicantDTOtoEntity(guestLogDTO);
         guestLogDao.saveGuestLog(guestLogDetail);
+
+        MultipartFile canvas = guestLogDTO.getCanvas();
+        if (canvas != null) {
+            String attachedFileName = canvas.getOriginalFilename();
+            String attachedFileExt = attachedFileName.substring(attachedFileName.lastIndexOf("."));
+            String fileName = attachedFileName;
+            responseMessage = FileUploadToExternalLocation.fileUploader(canvas, fileName, "attachFile.properties", request);
+            if (responseMessage.getResponseStatus() == SystemDataInt.MESSAGE_STATUS_UNSUCCESSFUL.value()) {
+                return responseMessage;
+            }
+        }
         responseMessage.setResponseStatus(SystemDataInt.MESSAGE_STATUS_SUCCESSFUL.value());
         responseMessage.setResponseText("Submitted successfully.");
         return responseMessage;

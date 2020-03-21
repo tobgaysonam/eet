@@ -192,21 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="form-group row">
-                <label class="col-sm-3">Image: </label>
-                <div class="col-sm-9">
-                    <input type="file" class="attachedFile" id="attachedFile"
-                           name='fileAttachmentDTOs[0].attachedFile'
-                           accept="image/jpeg,image/png,.doc,.docx,.pdf,.xlsx,.xls"
-                           required>
-                </div>
-            </div>
-
-        </div>
-
     </div>
-
     <hr>
     <div class="form-group row">
         <input type="text" id="imageData"/>
