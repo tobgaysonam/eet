@@ -195,6 +195,7 @@
     </div>
     <hr>
     <div class="form-group row">
+        <input type="text" id="imageData"/>
         <div class="col-sm-12">
             <button type="submit" id="btnSubmit" class="btn btn-primary">
                 <i class="fa fa-check"></i>
