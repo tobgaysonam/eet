@@ -43,6 +43,13 @@ public class GuestLogController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/fetchExistingGuestLogDetails", method = RequestMethod.GET)
+    public ResponseMessage fetchExistingGuestLogDetails(String cidNo) {
+        responseMessage = guestLogService.fetchExistingGuestLogDetails(cidNo);
+        return responseMessage;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/saveGuestLog", method = RequestMethod.POST)
     public ResponseMessage saveGuestLog(HttpServletRequest request, HttpServletResponse response,GuestLogDTO guestLogDTO) throws Exception {
         responseMessage = guestLogService.saveGuestLog(request,guestLogDTO);

@@ -1,65 +1,37 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ICT-MoF
-  Date: 3/21/2020
-  Time: 11:04 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<%@page contentType="text/html" session="false" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<meta name="decorator" content="/layout/login-layout.jsp"/>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-<div class="card-body">
-    <form method="POST" action="">
-
-            <h3><i class="fa fa-users"></i>   User Login Form</h3>
-<hr>
-
-        <div class="form-group row">
-            <label for="email" class="col-md-4 col-form-label text-md-right">User ID :</label>
-
-            <div class="col-md-6">
-                <input id="email" type="email" class="form-control" name="email" value="" required >
-
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="password" class="col-md-4 col-form-label text-md-right">Password :</label>
-
-            <div class="col-md-6">
-                <input id="password" type="password" class="form-control " name="password" required >
-
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-sm-4">
+<div class="row">
+    <div class="col col-login mx-auto">
+        <form class="card" action="" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <div class="card-body p-6">
+                <div class="card-title">Login to your account</div>
+                <hr/>
+                <div class="form-group">
+                    <c:if test="${not empty error}">
+                        <label class="form-label" style="color: red;"><spring:message code="${error}"/></label>
+                    </c:if>
                 </div>
-            <div class="col-sm-8">
-                <button class="btn btn-success" type="submit">
-                    <i class="fa fa-key"></i>Login
-                </button>
-                <button class="btn btn-danger" type="reset">
-                    <i class="fa fa-close"></i> Cancel
-                </button>
-
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="username" autofocus="true" class="form-control tabable"
+                           tabindex="1" required="true" autocomplete="off" placeholder="Enter Your Username"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control tabable" tabindex="2"
+                           required="true" autocomplete="off" placeholder="Enter Your Password"/>
+                </div>
+                <div class="form-footer">
+                    <input type="submit" class="btn btn-primary btn-block tabable" tabindex="4"
+                           value="SIGN IN" style="color: #fff;"/>
+                    <button type="reset" class="btn btn-warning btn-block">Reset</button>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
-</div>
-            </div>
-        </div>
+        </form>
     </div>
-
-
-</body>
-</html>
+</div>

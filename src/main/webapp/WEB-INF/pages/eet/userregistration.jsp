@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ICT-MoF
@@ -12,7 +13,8 @@
     <title></title>
 </head>
 <body>
-<form class="form-group" id="userrego"  method="post">
+<form class="card form-horizontal" id="userRegistrationFormId" action="<c:url value="/userRegistration"/>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="row">
         <div class="col-6">
             <div class="form-group row">

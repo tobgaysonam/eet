@@ -1,11 +1,7 @@
 package bt.gov.moh.eet.entity;
 
-import org.exolab.castor.types.DateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -16,6 +12,10 @@ import java.util.Date;
 public class GuestLogDetail {
     //region private variables
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "guest_id")
+    private Integer guestId;
+
     @Column(name = "identification_type_id")
     private Integer identification_type_id;
 
@@ -44,10 +44,10 @@ public class GuestLogDetail {
     private Integer temperature;
 
     @Column(name = "entry_date_time")
-    private DateTime entry_date_time;
+    private Date entry_date_time;
 
     @Column(name = "exit_date_time")
-    private DateTime exit_date_time;
+    private Date exit_date_time;
 
     @Column(name = "reason_id")
     private Integer reason_id;
@@ -55,15 +55,33 @@ public class GuestLogDetail {
     @Column(name = "reason")
     private String reason;
 
+    @Column(name = "gate_id")
+    private Integer gateId;
+
     @Column(name = "created_by")
     private Integer created_by;
 
     @Column(name = "created_on")
-    private DateTime created_on;
+    private Date created_on;
+
+    @Column(name = "alert_flag")
+    private Enum alertFlag;
+
+    @Column(name = "alert_update_time")
+    private Date alertUpdateTime;
 
     //endregion
 
     //region setters and getters
+
+
+    public Integer getGuestId() {
+        return guestId;
+    }
+
+    public void setGuestId(Integer guestId) {
+        this.guestId = guestId;
+    }
 
     public Integer getIdentification_type_id() {
         return identification_type_id;
@@ -137,19 +155,19 @@ public class GuestLogDetail {
         this.temperature = temperature;
     }
 
-    public DateTime getEntry_date_time() {
+    public Date getEntry_date_time() {
         return entry_date_time;
     }
 
-    public void setEntry_date_time(DateTime entry_date_time) {
+    public void setEntry_date_time(Date entry_date_time) {
         this.entry_date_time = entry_date_time;
     }
 
-    public DateTime getExit_date_time() {
+    public Date getExit_date_time() {
         return exit_date_time;
     }
 
-    public void setExit_date_time(DateTime exit_date_time) {
+    public void setExit_date_time(Date exit_date_time) {
         this.exit_date_time = exit_date_time;
     }
 
@@ -177,14 +195,37 @@ public class GuestLogDetail {
         this.created_by = created_by;
     }
 
-    public DateTime getCreated_on() {
+    public Date getCreated_on() {
         return created_on;
     }
 
-    public void setCreated_on(DateTime created_on) {
+    public void setCreated_on(Date created_on) {
         this.created_on = created_on;
     }
 
+    public Integer getGateId() {
+        return gateId;
+    }
+
+    public void setGateId(Integer gateId) {
+        this.gateId = gateId;
+    }
+
+    public Enum getAlertFlag() {
+        return alertFlag;
+    }
+
+    public void setAlertFlag(Enum alertFlag) {
+        this.alertFlag = alertFlag;
+    }
+
+    public Date getAlertUpdateTime() {
+        return alertUpdateTime;
+    }
+
+    public void setAlertUpdateTime(Date alertUpdateTime) {
+        this.alertUpdateTime = alertUpdateTime;
+    }
 
     //endregion
 }

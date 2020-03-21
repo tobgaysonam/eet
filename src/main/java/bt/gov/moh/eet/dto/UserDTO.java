@@ -1,27 +1,34 @@
 package bt.gov.moh.eet.dto;
 
-import org.exolab.castor.types.DateTime;
+import java.io.Serializable;
 
-/**
- * Created by nzepa on 3/7/2020.
- */
-public class UserDTO {
-
-    //private variables region
-    private Integer cid;
+public class UserDTO implements Serializable {
+    private String username;
+    private String fullName;
     private String password;
-    private String full_name;
-    private Integer mobile_number;
-    private String designation;
-    private String working_address;
-    private Integer user_type_id;
+    private Integer userTypeId;
+    private Boolean changePasswordYN;
 
-    public Integer getCid() {
-        return cid;
+    private Integer roleId;
+
+    public UserDTO() {
+
     }
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPassword() {
@@ -32,43 +39,44 @@ public class UserDTO {
         this.password = password;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public Boolean getChangePasswordYN() {
+        return changePasswordYN;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setChangePasswordYN(Boolean changePasswordYN) {
+        this.changePasswordYN = changePasswordYN;
     }
 
-    public Integer getMobile_number() {
-        return mobile_number;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setMobile_number(Integer mobile_number) {
-        this.mobile_number = mobile_number;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
-    public String getDesignation() {
-        return designation;
+    public Integer getUserTypeId() {
+        return userTypeId;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setUserTypeId(Integer userTypeId) {
+        this.userTypeId = userTypeId;
     }
 
-    public String getWorking_address() {
-        return working_address;
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof UserDTO) {
+            UserDTO userLogin = (UserDTO) obj;
+            return userLogin.getUsername().equals(this.username);
+        } else {
+            return false;
+        }
     }
 
-    public void setWorking_address(String working_address) {
-        this.working_address = working_address;
-    }
-
-    public Integer getUser_type_id() {
-        return user_type_id;
-    }
-
-    public void setUser_type_id(Integer user_type_id) {
-        this.user_type_id = user_type_id;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + this.username.hashCode();
+        return hash;
     }
 }
