@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 
 @Controller
-  @RequestMapping("/guestLog")
+  @RequestMapping("/guestLogDetail")
 public class GuestLogController {
     @Autowired
     private GuestLogService guestLogService;
@@ -33,6 +33,7 @@ public class GuestLogController {
         model.addAttribute("IdentificationType", guestLogService.getIdentificationType());
         model.addAttribute("getExitReasons", guestLogService.getExitReasons());
         model.addAttribute("getNationalities", guestLogService.getNationalities());
+        model.addAttribute("getGates", guestLogService.getGates());
         return "eet/guestRegistration";
     }
     @ResponseBody

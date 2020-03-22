@@ -28,7 +28,7 @@
                     <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown" style="height:60px;">
                         <span class="fa fa-user"></span>
                     <span class="ml-2 d-none d-lg-block">
-                      <span class="text-muted">${auth.fullName}</span>
+                     <%-- <span class="text-muted">${auth.fullName}</span>--%>
                     </span>
                     </a>
 

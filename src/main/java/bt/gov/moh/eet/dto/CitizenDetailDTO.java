@@ -8,7 +8,7 @@ public class CitizenDetailDTO {
     //private variable region
     private String name;
     private String gender;
-    private String age;
+    private Integer age;
 
     public String getName() {
         return name;
@@ -26,11 +26,11 @@ public class CitizenDetailDTO {
         this.gender = gender;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }

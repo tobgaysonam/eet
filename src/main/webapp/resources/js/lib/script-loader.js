@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
     if (document.URL.search("guestLog") > 1)
-        scriptLoader("/resources/js/eet/guestLog.js");
+        scriptLoader("/resources/js/eet/guestLogDetail.js");
 
     if (document.URL.search("calculator") > 1)
         scriptLoader("/resources/js/eet/calculator.js");

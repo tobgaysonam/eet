@@ -13,8 +13,8 @@
     <title></title>
 </head>
 <body>
-<form class="card form-horizontal" id="guestLogFormId" action="<c:url value="/guestLog"/>" method="post" enctype="multipart/form-data">
-    <div class="row">
+<form class="card form-horizontal" id="guestLogFormId" action="<c:url value="/guestLogDetail"/>" method="post" enctype="multipart/form-data">
+   <%-- <div class="row">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="col-12">
             <div class="pull-right">
@@ -29,10 +29,10 @@
             </div>
         </div>
     </div>
-    <jsp:include page="imagecapture.jsp"></jsp:include>
+    <jsp:include page="imagecapture.jsp"></jsp:include>--%>
     <div class="row">
-        <div class="col-4">
-            </div>
+        <br>
+        <div class="col-4"><label>Are you Existing or Entering ?</label></div>
         <div class="col-2">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="entry" name="entry" value="Entry">
@@ -41,13 +41,12 @@
         </div>
         <div class="col-2">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="exit" name="entry" value="Exit" checked>
+                <input type="radio" class="custom-control-input" id="exit" name="entry" value="Exit">
                 <label class="custom-control-label" for="entry">Exit</label>
             </div>
         </div>
     </div>
 <hr>
-    <div class="row">
         <div class="col-12">
             <div class="form-group row">
                 <label class="col-sm-3">Identification Type: </label>
@@ -62,57 +61,30 @@
                 </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="row">
         <div class="col-12">
             <div class="form-group row">
                 <label class="col-sm-3">Identification No: </label>
                 <div class="col-sm-7">
                     <input type="text" name="identificationNo" id="identificationNo" required class="form-control form-control-sm">
                     <span class="text-danger" id="identificationNoErrorMsg"></span>
-
                 </div>
             </div>
-
         </div>
-
-    </div>
 <hr>
-    <div class="row">
-        <div class="col-6">
-            <div class="form-group row">
-                <label class="col-sm-3">Nationality: </label>
-                <div class="col-sm-9">
-                    <form:select id="nationalityId" name="nationalityId" path="getNationalities"
-                                 class="form-control field">
-                        <form:option value="" label="--SELECT--"></form:option>
-                        <form:options items="${getNationalities}" itemValue="valueInteger"
-                                      itemLabel="text"></form:options>
-                    </form:select>
-                    <span class="text-danger" id="nationalityIdErrorMsg"></span>
-                </div>
-            </div>
-        </div>
         <div class="col-6">
             <div class="form-group row">
                 <label class="col-sm-3">Name: </label>
                 <div class="col-sm-9">
-                    <input type="text" name="name" id="name" required class="form-control form-control-sm">
+                    <input type="text" name="name" id="name" readonly class="form-control form-control-sm">
                     <span class="text-danger" id="nameErrorMsg"></span>
                 </div>
             </div>
-
         </div>
-    </div>
-
-    <div class="row">
         <div class="col-6">
             <div class="form-group row">
                 <label class="col-sm-3">Gender: </label>
                 <div class="col-sm-9">
-                    <select name="gender" id="gender" required class="form-control field">
+                    <select name="gender" id="gender" required class="form-control field" readonly>
                         <option value="">Select</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
@@ -125,15 +97,26 @@
             <div class="form-group row">
                 <label class="col-sm-3">Age: </label>
                 <div class="col-sm-9">
-                    <input type="text" name="age" id="age" required class="form-control form-control-sm">
+                    <input type="text" name="age" id="age" required class="form-control form-control-sm" readonly>
                     <span class="text-danger" id="ageErrorMsg"></span>
                 </div>
             </div>
 
         </div>
-    </div>
-
-    <div class="row">
+       <div class="col-6">
+           <div class="form-group row">
+               <label class="col-sm-3">Nationality: </label>
+               <div class="col-sm-9">
+                   <form:select id="nationalityId" name="nationalityId" path="getNationalities"
+                                class="form-control field">
+                       <form:option value="" label="--SELECT--"></form:option>
+                       <form:options items="${getNationalities}" itemValue="valueInteger"
+                                     itemLabel="text"></form:options>
+                   </form:select>
+                   <span class="text-danger" id="nationalityIdErrorMsg"></span>
+               </div>
+           </div>
+       </div>
         <div class="col-6">
             <div class="form-group row">
                 <label class="col-sm-3">Present Address: </label>
@@ -151,17 +134,13 @@
                     <span class="text-danger" id="contactNoErrorMsg"></span>
                 </div>
             </div>
-
         </div>
-    </div>
-
-    <div class="row">
         <div class="col-6">
             <div class="form-group row">
                 <label class="col-sm-3">Reason: </label>
                 <div class="col-sm-9">
                     <form:select id="exitReasonId" name="exitReasonId" path="getExitReasons"
-                                 class="form-control field">
+                                 class="form-control field" onchange="onChangeReason(this.value)">
                         <form:option value="" label="--SELECT--"></form:option>
                         <form:options items="${getExitReasons}" itemValue="valueInteger"
                                       itemLabel="text"></form:options>
@@ -170,6 +149,20 @@
                 </div>
             </div>
         </div>
+       <div class="col-6" id="NextEntryDiv" style="display: none">
+           <div class="form-group row">
+               <label class="col-sm-3">Next Entry Point: </label>
+               <div class="col-sm-9">
+                   <form:select id="gateId" name="gateId" path="getGates"
+                                class="form-control field">
+                       <form:option value="" label="--SELECT--"></form:option>
+                       <form:options items="${getGates}" itemValue="valueInteger"
+                                     itemLabel="text"></form:options>
+                   </form:select>
+                   <span class="text-danger" id="exitReasonIdErrorMsg"></span>
+               </div>
+           </div>
+       </div>
         <div class="col-6">
             <div class="form-group row">
                 <label class="col-sm-3">Reasons: </label>
@@ -178,11 +171,7 @@
                     <span class="text-danger" id="reasonsErrorMsg"></span>
                 </div>
             </div>
-
         </div>
-    </div>
-
-    <div class="row">
         <div class="col-6">
             <div class="form-group row">
                 <label class="col-sm-3">Thermometer Reading: </label>
@@ -192,14 +181,12 @@
                 </div>
             </div>
         </div>
-    </div>
     <hr>
     <div class="form-group row">
-        <input type="text" id="imageData"/>
         <div class="col-sm-12">
             <button type="submit" id="btnSubmit" class="btn btn-primary">
                 <i class="fa fa-check"></i>
-                Register Visitor
+                Register
             </button>
             <button class="btn btn-danger" type="reset">
                 <i class="fa fa-trash"></i> Cancel

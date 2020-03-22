@@ -34,6 +34,9 @@ public class GuestLogService {
     public List<DropdownDTO> getNationalities() {
         return guestLogDao.getNationalities();
     }
+    public List<DropdownDTO> getGates() {
+        return guestLogDao.getGates();
+    }
 
 
     public ResponseMessage saveGuestLog(HttpServletRequest request, GuestLogDTO guestLogDTO) throws IOException {

@@ -41,6 +41,13 @@ public class GuestLogDao extends BaseDao {
         Query hQuery = (Query) hibernateQuery(sqlQuery, DropdownDTO.class);
         return hQuery.list().isEmpty() ? null : hQuery.list();
     }
+    @Transactional (readOnly = true)
+    public List<DropdownDTO> getGates() {
+        String sqlQuery = properties.getProperty("EntryExitTrackerDao.getGates");
+        Query hQuery = (Query) hibernateQuery(sqlQuery, DropdownDTO.class);
+        return hQuery.list().isEmpty() ? null : hQuery.list();
+    }
+
 
     @Transactional(value = "txManager", rollbackFor = Exception.class)
     public void saveGuestLog(GuestLogDetail guestLogDetail) {
