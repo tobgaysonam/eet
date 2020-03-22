@@ -1,22 +1,12 @@
 package bt.gov.moh.eet.dao;
 
-import bt.gov.moh.eet.dto.*;
-import com.squareup.okhttp.OkHttpClient;
+import bt.gov.moh.eet.dto.UserDTO;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
-import org.wso2.client.api.ApiClient;
-import org.wso2.client.api.G2C_CommonBusinessAPI.DefaultApi;
-import org.wso2.client.model.G2C_CommonBusinessAPI.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by N-Zepa on 25-Sep-19.

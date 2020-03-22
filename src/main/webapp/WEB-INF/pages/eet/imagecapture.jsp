@@ -50,9 +50,17 @@
 
     init();
     var context = canvas.getContext('2d');
+<<<<<<< HEAD
 
+=======
+    var imageData;
+>>>>>>> 6aa2e5fc2b7ef7e2de1d2014335509438187df4d
     snap.addEventListener('click', function(){
         context.drawImage(video, 0, 0, 200, 200);
+        var imageHeight = video.height;
+        var imageWidth = video.width;
+        imageData = context.getImageData(0, 0, imageWidth, imageHeight);
+        $('#imageData').val(imageData);
         $('#imageCaptureModal').modal('hide');
         stopRecording();
 
