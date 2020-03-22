@@ -71,6 +71,7 @@ guestLog = (function () {
         $('#identificationNo').on('change', function () {
             var identificationNo = $(this).val();
                 if (identificationNo != '') {
+                   
                     var url = _baseURL() + 'getCitizenDetails';
                     $.ajax({
                         url: url,
@@ -83,6 +84,7 @@ guestLog = (function () {
                                 $('#name').val(data.name);
                                 $('#gender').val(data.gender);
                                 $('#age').val(data.age);
+
                             } else {
                                 $('#identificationNoErrorMsg').html(res.responseText);
                                 $('#name').val('');

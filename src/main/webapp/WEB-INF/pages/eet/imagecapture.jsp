@@ -50,10 +50,12 @@
 
     init();
     var context = canvas.getContext('2d');
+
     snap.addEventListener('click', function(){
         context.drawImage(video, 0, 0, 200, 200);
         $('#imageCaptureModal').modal('hide');
         stopRecording();
+
     });
 
     function stopRecording(){

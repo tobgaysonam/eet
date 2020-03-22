@@ -32,6 +32,21 @@ public class CommonServiceApi {
             CitizenDetailDTO citizenDetailDTO = new CitizenDetailDTO();
 
         try {
+            String sDate1="31/12/1988";
+            String[] calDateArray = sDate1.split("/");
+            int calYear = Integer.parseInt(calDateArray[2]);
+            //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
+            //Calendar calendar1 = Calendar.getInstance(); // now
+            //String sDate2="31/12/1998";
+
+            int year = Calendar.getInstance().get(Calendar.YEAR);
+            int dateDiffYears = year - calYear;
+
+            System.out.println(dateDiffYears);
+
+
+
+
             OkHttpClient httpClient = new OkHttpClient();
             httpClient.setConnectTimeout(10000, TimeUnit.MILLISECONDS);
             httpClient.setReadTimeout(10000, TimeUnit.MILLISECONDS);
@@ -55,6 +70,8 @@ public class CommonServiceApi {
                 System.out.println("Gender " + citizendetailsObj.getGender());
                 citizenDetailDTO.setGender(citizendetailsObj.getGender());
                 citizenDetailDTO.setAge(citizendetailsObj.getDob());
+
+
             }
         } catch (Exception e) {
             responseMessage.setResponseStatus(SystemDataInt.MESSAGE_STATUS_UNSUCCESSFUL.value());
